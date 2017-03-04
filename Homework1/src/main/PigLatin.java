@@ -2,6 +2,7 @@ package main;
 
 public class PigLatin {
 	public static void main(String[] args){
+		StringBuilder result = new StringBuilder();
 		for(String arg: args){
 			StringBuilder str = new StringBuilder(arg);//non thread safe
 			if(isVowelAtStart(str)){
@@ -11,8 +12,10 @@ public class PigLatin {
 				str = str.append(str.charAt(0)).append("ay").delete(0, 1);
 			}
 			str.setCharAt(0, str.substring(0, 1).toUpperCase().charAt(0));//Upper first char
-			System.out.printf("%s ", str.toString());
+			result = result.append(str).append(" ");
 		}
+		String output_string = result.deleteCharAt(result.length()-1).toString();//delete last " "
+		System.out.println(output_string);
 	}
 	
 	public static boolean isVowelAtStart(StringBuilder input){//check if first char is vowel
