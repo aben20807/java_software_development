@@ -15,7 +15,7 @@ public class PigLatin {
 			result = result.append(str).append(" ");
 		}
 		String output_string = result.deleteCharAt(result.length()-1).toString();//delete last " "
-		System.out.println(output_string);
+		System.out.print(output_string);
 	}
 	
 	public static boolean isVowelAtStart(StringBuilder input){//check if first char is vowel
