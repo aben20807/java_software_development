@@ -20,7 +20,7 @@ public class SpecialNumber {
 			}
 		}
 		else if(mode == 'Y'){
-			System.out.println(getNthSpecialNumber((int)(num)));
+			System.out.print(getNthSpecialNumber((int)(num)));
 		}
 		else;
 		scanner.close();
