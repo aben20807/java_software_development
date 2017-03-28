@@ -50,10 +50,10 @@ public class SquareRoot {
 		}
 		else{
 			int thirdDecimal = Integer.parseInt(resultString.substring(resultString.length()-1));
-			//System.out.println(thirdDecimal);
+			//System.out.println("\n"+thirdDecimal);
 			if(thirdDecimal >= 5){
 				resultString = resultString.substring(0, resultString.length()-1);
-				resultValue = Double.parseDouble(resultString) + 0.1;
+				resultValue = Double.parseDouble(resultString) + 0.01;
 			}
 			else{
 				resultString = resultString.substring(0, resultString.length()-1);
