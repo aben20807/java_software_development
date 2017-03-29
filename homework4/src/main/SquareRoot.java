@@ -11,10 +11,10 @@ public class SquareRoot {
 		
 		Scanner scanner = new Scanner(System.in);
 		double num = Double.parseDouble(scanner.nextLine());
-		System.out.print("Origin:\t"+babylonian(num));
-		System.out.print("\nOuO:\t"+roundByOuO(babylonian(num)));
-		System.out.print("\nDecim:\t"+roundByDecimalFormat(babylonian(num)));
-		System.out.print("\nBigDe:\t"+roundbyBigDecimal(babylonian(num)));
+//		System.out.print("Origin:\t"+babylonian(num));
+//		System.out.print("\nOuO:\t"+roundByOuO(babylonian(num)));
+		System.out.print(roundByDecimalFormat(babylonian(num)));
+//		System.out.print("\nBigDe:\t"+roundbyBigDecimal(babylonian(num)));
 		scanner.close();
 	}
 	

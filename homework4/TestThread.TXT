@@ -1,0 +1,28 @@
+package main;
+
+public class TestThread extends Thread{
+//	public static double init = 0;
+	double init;
+	int times = 100000000;
+	public TestThread(double n) {
+		init = n;
+		
+	}
+	public void run(){
+		double n = init*times;
+		System.out.println(n);
+		for(double i = n; i < n+times; i++){
+			if(i == 0D)continue;
+			double num = i;
+			if(!(SquareRoot.roundByOuO(SquareRoot.babylonian(num)).equals(SquareRoot.roundByDecimalFormat(SquareRoot.babylonian(num))))||
+					!(SquareRoot.roundByOuO(SquareRoot.babylonian(num)).equals(SquareRoot.roundbyBigDecimal(SquareRoot.babylonian(num))))||
+					!(SquareRoot.roundbyBigDecimal(SquareRoot.babylonian(num)).equals(SquareRoot.roundByDecimalFormat(SquareRoot.babylonian(num))))){
+					System.out.print("Origin:\t"+SquareRoot.babylonian(num));
+					System.out.print("\nOuO:\t"+SquareRoot.roundByOuO(SquareRoot.babylonian(num)));
+					System.out.print("\nDecim:\t"+SquareRoot.roundByDecimalFormat(SquareRoot.babylonian(num)));
+					System.out.print("\nBigDe:\t"+SquareRoot.roundbyBigDecimal(SquareRoot.babylonian(num)));
+				}
+		}
+		System.out.println("T "+init+" End");
+	}
+}
