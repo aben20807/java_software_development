@@ -19,6 +19,7 @@ public class MainOfHw5 {
 	}
 	
 	private static Document newType(String type){
+		//new and initialize after getting type
 		Document tmp;
 		switch (type) {
 		case "Document":
@@ -48,33 +49,107 @@ public class MainOfHw5 {
 	}
 
 	private static void doMode(char mode, Document typeDocument){
+		//switch mode to do
 		if(typeDocument == null) return;
 		switch (mode) {
 		case 'A':
-			System.out.println(typeDocument.toString());
+			doModeA(typeDocument);
 			break;
 
 		case 'B':
-			String keyword = scanner.nextLine();
-			String[] token = typeDocument.toString().split("[\\s']");
-			boolean isFind = false;
-			for (String i : token) {
-				if(keyword.equals(i)){
-					isFind = true;
-					System.out.println("true");
-					break;
-				}
-			}
-			if(isFind == false){
-				System.out.println("false");
-			}
+			doModeB(typeDocument);
 			break;
+		
 		case 'C':
-	
+			doModeC(typeDocument);
 			break;
 		
 		default:
 			break;
 		}
+	}
+	
+	private static void doModeA(Document typeDocument){
+		
+		System.out.print(typeDocument.toString());
+	}
+	
+	private static void doModeB(Document typeDocument){
+		
+		String keyword = scanner.nextLine();
+		String[] token = typeDocument.toString().split("[\\s']");//split with " "
+		boolean isFind = false;
+		for (String i : token) {//find keyword
+			if(keyword.equals(i)){
+				isFind = true;
+				System.out.print("true");
+				break;
+			}
+		}
+		if(isFind == false){
+			System.out.print("false");
+		}
+	}
+	
+	private static void doModeC(Document typeDocument){
+		
+		String changeVariable = scanner.nextLine();
+		String newValueOfVariable = scanner.nextLine();
+		//System.out.println(typeDocument.getClass().getName());
+		switch (typeDocument.getClass().getName()) {//switch class name
+		case "main.Document":
+			switch (changeVariable) {//switch attribute in class
+			case "text":
+				typeDocument.setText(newValueOfVariable);
+				break;
+
+			default:
+				break;
+			}
+			break;
+
+		case "main.Email":
+			switch (changeVariable) {//switch attribute in class
+			case "text":
+				((Email) typeDocument).setText(newValueOfVariable);
+				break;
+				
+			case "sender":
+				((Email) typeDocument).setSender(newValueOfVariable);
+				break;
+				
+			case "recipient":
+				((Email) typeDocument).setRecipient(newValueOfVariable);
+				break;
+				
+			case "title":
+				((Email) typeDocument).setTitle(newValueOfVariable);
+				break;
+
+			default:
+				break;
+			}
+			break;
+			
+		case "main.File":
+			switch (changeVariable) {//switch attribute in class
+			case "text":
+				((File) typeDocument).setText(newValueOfVariable);
+				break;
+				
+			case "pathname":
+				((File) typeDocument).setPathname(newValueOfVariable);
+				break;
+
+			default:
+				break;
+			}
+			break;
+			
+		default:
+			break;
+		}
+		
+		System.out.print(typeDocument.toString());//print the updated text content
 	}
 }
