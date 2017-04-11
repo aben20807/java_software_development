@@ -77,17 +77,11 @@ public class MainOfHw5 {
 	private static void doModeB(Document typeDocument){
 		
 		String keyword = scanner.nextLine();
-		String[] token = typeDocument.toString().split("[\\s']");//split with " "
-		boolean isFind = false;
-		for (String i : token) {//find keyword
-			if(keyword.equals(i)){
-				isFind = true;
-				System.out.print("true");
-				break;
-			}
-		}
-		if(isFind == false){
+		if(typeDocument.text.indexOf(keyword) == -1){
 			System.out.print("false");
+		}
+		else{
+			System.out.print("true");
 		}
 	}
 	
