@@ -43,7 +43,7 @@ public class Main {
 		for(int i = 0; i < symbolList.size(); i++){
 			ans = operateSelect(ans, numberList.get(i+1), symbolList.get(i));
 		}
-		System.out.println(ans);
+		System.out.print(ans);
 		scanner.close();
 	}
 
