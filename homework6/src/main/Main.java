@@ -61,32 +61,15 @@ public class Main {
 		case '<':
 		case '=':
 			operation = new Comparision();
-			if(symbol == '>' && operation.perform(n1, n2) == "1")
+			//System.out.println(symbol + " " + operation.perform(n1, n2));
+			if(symbol == '>' && operation.perform(n1, n2).equals("1"))
 				return "true";
-			else if(symbol == '=' && operation.perform(n1, n2) == "0")
+			else if(symbol == '=' && operation.perform(n1, n2).equals("0"))
 				return "true";
-			else if(symbol == '<' && operation.perform(n1, n2) == "-1")
+			else if(symbol == '<' && operation.perform(n1, n2).equals("-1"))
 				return "true";
 			else
 				return "false";
-//		case '>':
-//			operation = new Comparision();
-//			if(operation.perform(n1, n2) == "1")
-//				return "true";
-//			else
-//				return "false";
-//		case '<':
-//			operation = new Comparision();
-//			if(operation.perform(n1, n2) == "-1")
-//				return "true";
-//			else
-//				return "false";
-//		case '=':
-//			operation = new Comparision();
-//			if(operation.perform(n1, n2) == "0")
-//				return "true";
-//			else
-//				return "false";
 		default:
 			operation = null;
 			return "";
