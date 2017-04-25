@@ -33,13 +33,63 @@ public class Main {
 		//add last number
 		numberList.add(input.substring(numBegin, input.length()));
 		
+//		for(int i = 0; i < symbolList.size(); i++){
+//			System.out.println(symbolList.get(i));
+//		}
+//		for(int i = 0; i < numberList.size(); i++){
+//			System.out.println(numberList.get(i));
+//		}
+		String ans = numberList.get(0);//first number
 		for(int i = 0; i < symbolList.size(); i++){
-			System.out.println(symbolList.get(i));
+			ans = operateSelect(ans, numberList.get(i+1), symbolList.get(i));
 		}
-		for(int i = 0; i < numberList.size(); i++){
-			System.out.println(numberList.get(i));
-		}
+		System.out.println(ans);
 		scanner.close();
 	}
 
+	private static String operateSelect(String n1, String n2, char symbol){
+		
+		IOperation operation;
+		switch (symbol) {
+		case '+':
+			operation = new Addition();
+			return operation.perform(n1, n2);
+		case '-':
+			operation = new Subtraction();
+			return operation.perform(n1, n2);
+		case '>':
+		case '<':
+		case '=':
+			operation = new Comparision();
+			if(symbol == '>' && operation.perform(n1, n2) == "1")
+				return "true";
+			else if(symbol == '=' && operation.perform(n1, n2) == "0")
+				return "true";
+			else if(symbol == '<' && operation.perform(n1, n2) == "-1")
+				return "true";
+			else
+				return "false";
+//		case '>':
+//			operation = new Comparision();
+//			if(operation.perform(n1, n2) == "1")
+//				return "true";
+//			else
+//				return "false";
+//		case '<':
+//			operation = new Comparision();
+//			if(operation.perform(n1, n2) == "-1")
+//				return "true";
+//			else
+//				return "false";
+//		case '=':
+//			operation = new Comparision();
+//			if(operation.perform(n1, n2) == "0")
+//				return "true";
+//			else
+//				return "false";
+		default:
+			operation = null;
+			return "";
+		}
+	}
 }
