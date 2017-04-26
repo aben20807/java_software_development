@@ -79,12 +79,14 @@ public class Homework6Test {
 
     @Test
     public void testMain() {
+
     	Main.main(null);//TODO change "Main" to your main class name
-        if(!expected.equals(outContent.toString())){
-        	System.err.println("Question: " + input);
+    	if(!expected.equals(outContent.toString())){
+    		System.err.println("Question: " + input);
     		System.err.println("Corr: " + expected);
     		System.err.println("Your: " + outContent.toString() + "\n");
-        }
+    	}
         assertEquals(expected, outContent.toString());
+    	
     }
 }
