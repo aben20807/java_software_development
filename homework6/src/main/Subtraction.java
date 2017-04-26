@@ -15,7 +15,7 @@ public class Subtraction implements IOperation{
 		else{
 			StringBuilder ans = new StringBuilder();
 			String relation = "";
-			IOperation operation = new Comparision();
+			IOperation operation = new Comparison();
 			relation = operation.perform(num1, num2);
 			//System.out.println(relation);
 			if(relation.equals("0")){//num1 = num2

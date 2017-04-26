@@ -60,7 +60,7 @@ public class Main {
 		case '>':
 		case '<':
 		case '=':
-			operation = new Comparision();
+			operation = new Comparison();
 			//System.out.println(symbol + " " + operation.perform(n1, n2));
 			if(symbol == '>' && operation.perform(n1, n2).equals("1"))
 				return "true";
