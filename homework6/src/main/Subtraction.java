@@ -43,7 +43,7 @@ public class Subtraction implements IOperation{
 				int carry = 0;
 				for(int i = 0; i < n1.length(); i++){
 					char digit = (char) (n1.charAt(n1.length()-1-i) - n2.charAt(n2.length()-1-i) + '0');
-					if(carry == -1 && digit >= '0'){
+					if(carry == -1){
 						digit -= 1;
 						carry = 0;
 					}
